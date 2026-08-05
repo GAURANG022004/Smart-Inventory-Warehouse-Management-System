@@ -16,7 +16,7 @@ A full-stack enterprise warehouse management platform built using Spring Boot, A
 - Invoice Generation
 - AWS S3 File Storage
 - Docker Deployment
-- GitHub Actions CI/CD
+- GitHub Actions CI / CD pipeline
 
 ## Technology Stack
 
