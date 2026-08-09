@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SmartinventoryandwarehouseApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Java Version : " + System.getProperty("Java.version"));
+		
 		SpringApplication.run(SmartinventoryandwarehouseApplication.class, args);
 	}
 
