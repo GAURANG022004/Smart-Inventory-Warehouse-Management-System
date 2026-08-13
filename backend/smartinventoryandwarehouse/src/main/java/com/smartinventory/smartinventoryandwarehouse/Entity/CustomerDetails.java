@@ -11,38 +11,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Entity
-@Getter
-@Setter
-public class CustomerDetails implements UserDetails{
-	
-	
-	private final User user;
-	 
-	public CustomerDetails(User user){
-		this.user = user;
-	}
-	
-	
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return List.of();
-	}
+public class CustomerDetails implements UserDetails {
 
-	@Override
-	public @Nullable String getPassword() {
-		// TODO Auto-generated method stub
-		return user.getPassword();
-	}
+    private final User user;
 
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return getEmail;
-	}
-	
-	
-	
+    public CustomerDetails(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getPassword() {
+        return user.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return user.getEmail();
+    }
 }
