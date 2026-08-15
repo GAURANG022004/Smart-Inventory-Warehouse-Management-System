@@ -13,9 +13,12 @@ import com.smartinventory.smartinventoryandwarehouse.Repository.UserRepository;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 	
-	@Autowired 
-	private  UserRepository userRepo;
-	
+	private final  UserRepository userRepo;
+
+		
+	public CustomUserDetailsService(UserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
 	@Override
 	public UserDetails loadUserByUsername(String email)
 	        throws UsernameNotFoundException {
