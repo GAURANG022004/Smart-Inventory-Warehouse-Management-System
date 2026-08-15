@@ -20,7 +20,6 @@ public class SecurityConfig {
     public SecurityConfig(UserDetailsService userDetailsService){
         this.userDetailsService = userDetailsService;
     }
-    
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -36,7 +35,7 @@ public class SecurityConfig {
     
     
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) {
     	return configuration.getAuthenticationManager();
     }
 
