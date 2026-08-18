@@ -12,9 +12,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+@jakarta.persistence.Entity
 @Getter
 @Setter
-@jakarta.persistence.Entity
 public class User {
 	
 	@Id

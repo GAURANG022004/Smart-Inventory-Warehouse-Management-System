@@ -2,12 +2,10 @@ package com.smartinventory.smartinventoryandwarehouse.Entity;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-@jakarta.persistence.Entity
 public class CustomUserDetails implements UserDetails {
 
     private final User user;
