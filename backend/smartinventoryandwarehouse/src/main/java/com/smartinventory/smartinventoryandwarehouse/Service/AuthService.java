@@ -25,12 +25,7 @@ public class AuthService {
 		if(user == null) return null;
 		
 				
-		if(passwordEncoder.matches(password , user.getPassword())) {
-			
-			if(user.getRole().equals(user))
-			
-			return user;
-		}
+		
 		
 		
 		return user;
