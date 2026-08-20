@@ -6,37 +6,38 @@ import com.smartinventory.smartinventoryandwarehouse.Entity.User.Role;
 import com.smartinventory.smartinventoryandwarehouse.Entity.User.Status;
 
 
-public class RegisterRequestDTO {
+public record RegisterRequestDTO (
 	
-	  long id;
+	 
 		
 		
-	   String firstName;
-	   String lastName;
+	   String firstName,
+	   String lastName,
 	    
 	    
-	   String email;
-	    
-	    
-	    
-	   String password;
-	    
-	    
-	   String phone;
+	   String email,
 	    
 	    
 	    
-	   Role role;
+	   String password,
+	    
+	    
+	   String phone,
 	    
 	    
 	    
-	    Status status;
+	   Role role,
 	    
 	    
-	    LocalDateTime createdAt;
-	    LocalDateTime updatedAt;
+	    
+	    Status status,
+	    
+	    
+	    LocalDateTime createdAt,
+	    LocalDateTime updatedAt
 	    
 
 	   
+) {
 	
 }
