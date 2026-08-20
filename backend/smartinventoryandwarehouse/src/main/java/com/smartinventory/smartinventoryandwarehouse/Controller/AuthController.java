@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartinventory.smartinventoryandwarehouse.DTO.AuthResponseDTO;
 import com.smartinventory.smartinventoryandwarehouse.DTO.LoginRequestDTO;
+import com.smartinventory.smartinventoryandwarehouse.DTO.RegisterRequestDTO;
 import com.smartinventory.smartinventoryandwarehouse.Entity.LoginRequest;
+import com.smartinventory.smartinventoryandwarehouse.Entity.User;
 import com.smartinventory.smartinventoryandwarehouse.Service.AuthService;
 import com.smartinventory.smartinventoryandwarehouse.serviceImpl.AuthServiceImpl;
 
@@ -52,6 +54,13 @@ public class AuthController {
 //		
 	}
 	
+	
+	@PostMapping("/register")
+	public ResponseEntity<User> registerUser(@Valid @RequestBody RegisterRequestDTO request){
+		
+		User user= authservice.register(request);
+		return ResponseEntity.ok(user);
+	}
 	
 	
 	
