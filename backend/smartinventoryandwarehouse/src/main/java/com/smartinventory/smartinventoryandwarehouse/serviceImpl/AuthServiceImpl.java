@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.smartinventory.smartinventoryandwarehouse.DTO.AuthResponseDTO;
 import com.smartinventory.smartinventoryandwarehouse.DTO.LoginRequestDTO;
+import com.smartinventory.smartinventoryandwarehouse.DTO.RegisterRequestDTO;
 import com.smartinventory.smartinventoryandwarehouse.Entity.LoginRequest;
+import com.smartinventory.smartinventoryandwarehouse.Entity.User;
+import com.smartinventory.smartinventoryandwarehouse.Repository.UserRepository;
 import com.smartinventory.smartinventoryandwarehouse.Service.AuthService;
 
 
@@ -17,6 +20,8 @@ import com.smartinventory.smartinventoryandwarehouse.Service.AuthService;
 public class AuthServiceImpl implements AuthService{
 	
 	//login Request	
+	@Autowired
+	private UserRepository repo;
 	
 	private final AuthenticationManager authenticationManager;
 	
@@ -28,6 +33,18 @@ public class AuthServiceImpl implements AuthService{
 	
 	public Authentication login(LoginRequestDTO request) {
 		return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.email(), request.password()));
+	}
+
+
+	@Override
+	public User register(RegisterRequestDTO request) {
+		User user  = new User();
+		user.setEmail(request.email());
+		user.setPassword(request.password());
+		user.setRole(request.role());
+		user.setStatus(request.status());
+		
+		return repo.save(new User());
 	}
 	
 //							LOGIN REQUEST
