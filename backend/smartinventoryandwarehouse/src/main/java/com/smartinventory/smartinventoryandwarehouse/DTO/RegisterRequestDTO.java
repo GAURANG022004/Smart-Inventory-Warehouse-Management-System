@@ -5,32 +5,37 @@ import java.time.LocalDateTime;
 import com.smartinventory.smartinventoryandwarehouse.Entity.User.Role;
 import com.smartinventory.smartinventoryandwarehouse.Entity.User.Status;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+
 
 public record RegisterRequestDTO (
 	
 	 
 		
-		
-	   String firstName,
-	   String lastName,
+		@Valid @NotBlank(message = "First Name is required.")
+	    String firstName,
+	   
+	    @Valid @NotBlank(message = "Last Name is required.")
+		String lastName,
+	    
+		@Valid @NotBlank(message = "Email is required.")
+		String email,
 	    
 	    
-	   String email,
+		@Valid @NotBlank(message = "Password is required.")
+		String password,
 	    
-	    
-	    
-	   String password,
-	    
-	    
-	   String phone,
-	    
-	    
-	    
-	   Role role,
+		@Valid @NotBlank(message = "First Name is required.")
+		String phone,
 	    
 	    
 	    
-	    Status status,
+		Role role,
+	    
+	    
+	    
+		Status status,
 	    
 	    
 	    LocalDateTime createdAt,
