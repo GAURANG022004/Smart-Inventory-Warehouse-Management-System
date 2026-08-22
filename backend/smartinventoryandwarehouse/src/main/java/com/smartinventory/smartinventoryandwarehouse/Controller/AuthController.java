@@ -3,6 +3,7 @@ package com.smartinventory.smartinventoryandwarehouse.Controller;
 import java.net.http.HttpRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,9 @@ import com.smartinventory.smartinventoryandwarehouse.DTO.AuthResponseDTO;
 import com.smartinventory.smartinventoryandwarehouse.DTO.LoginRequestDTO;
 import com.smartinventory.smartinventoryandwarehouse.DTO.RegisterRequestDTO;
 import com.smartinventory.smartinventoryandwarehouse.Entity.LoginRequest;
+import com.smartinventory.smartinventoryandwarehouse.Entity.RegisterResponseDTO;
 import com.smartinventory.smartinventoryandwarehouse.Entity.User;
+import com.smartinventory.smartinventoryandwarehouse.Exception.EmailAlreadyExistsException;
 import com.smartinventory.smartinventoryandwarehouse.Service.AuthService;
 import com.smartinventory.smartinventoryandwarehouse.serviceImpl.AuthServiceImpl;
 
@@ -56,10 +59,21 @@ public class AuthController {
 	
 	
 	@PostMapping("/register")
-	public ResponseEntity<User> registerUser(@Valid @RequestBody RegisterRequestDTO request){
+	public ResponseEntity<RegisterResponseDTO> registerUser(@Valid @RequestBody RegisterRequestDTO request) throws EmailAlreadyExistsException{
 		
 		User user= authservice.register(request);
-		return ResponseEntity.ok(user);
+		
+		RegisterResponseDTO response = new RegisterResponseDTO(
+				user.getFirstName(),
+				user.getLastName(),
+				user.getEmail(),
+				user.getPhone(),
+				user.getRole().name(),
+				user.getStatus().name()
+				);
+				
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(response);
 	}
 	
 	
