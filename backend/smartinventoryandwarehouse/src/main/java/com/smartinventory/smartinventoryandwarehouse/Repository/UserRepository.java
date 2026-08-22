@@ -11,4 +11,6 @@ import com.smartinventory.smartinventoryandwarehouse.Entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 	Optional<User> findByEmail(String email);
+	
+	boolean existByEmail(String email);
 }
