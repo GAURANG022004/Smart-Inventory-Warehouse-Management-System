@@ -15,24 +15,26 @@ public record RegisterRequestDTO (
 	
 	 
 		
-		@Valid @NotBlank(message = "First Name is required.")
+		@NotBlank(message = "First Name is required.")
 		@Size(max = 50, message = "First name must not exceeds 50 characters")
 	    String firstName,
 	   
-	    @Valid @NotBlank(message = "Last Name is required.")
+	    @NotBlank(message = "Last Name is required.")
 		@Size(max = 50, message = "First name must not exceeds 50 characters")
 		String lastName,
 	    
-		@Valid @NotBlank(message = "Email is required.")
+		@NotBlank(message = "Email is required.")
 		@Size(max = 50, message = "Email must not exceeds 50 ccharacters")
 		@Email
 		String email,
 	    
 	    
-		@Valid @NotBlank(message = "Password is required.")
+		@NotBlank(message = "Password is required.")
+		@Size(min = 8, max = 100, message = "password must be minimum 8 characters")
 		String password,
 	    
-		@Valid @NotBlank(message = "First Name is required.")
+		@NotBlank(message = "phone no. is required.")
+		@Size(max = 20, message = "Phone no. must not exceed 20 character")
 		String phone,
 	    
 	    
