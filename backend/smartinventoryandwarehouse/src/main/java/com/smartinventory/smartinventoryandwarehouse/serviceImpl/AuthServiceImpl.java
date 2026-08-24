@@ -32,7 +32,7 @@ public class AuthServiceImpl implements AuthService{
 	
 	private final AuthenticationManager authenticationManager;
 	
-	@Autowired
+	
 	public AuthServiceImpl(AuthenticationManager authenticationManager){
 		this.authenticationManager =  authenticationManager;
 	}
