@@ -45,7 +45,7 @@ public class AuthServiceImpl implements AuthService{
 
 	@Override
 	public User register(RegisterRequestDTO request) throws EmailAlreadyExistsException {
-		if (repo.existByEmail(request.email())) {
+		if (repo.existsByEmail(request.email())) {
 	        throw new EmailAlreadyExistsException(
 	                "Email already exists"
 	        );
