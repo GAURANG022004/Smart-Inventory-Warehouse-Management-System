@@ -11,4 +11,6 @@ public interface JWTService {
 	public boolean isTokenExpired(String token);
 	public boolean validateToken(String token, User user);
 
+
+	
 }
