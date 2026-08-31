@@ -118,11 +118,6 @@ public class RefreshTokenServiceImpl
         return result.toString();
     }
 
-	@Override
-	public String getRawToken(RefreshToken refreshToken) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public User validateAndGetUser(String rawToken) {
