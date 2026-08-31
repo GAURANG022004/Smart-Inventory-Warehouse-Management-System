@@ -33,6 +33,8 @@ public class RefreshTokenServiceImpl
 
         this.refreshTokenRepository = refreshTokenRepository;
         this.jwtProperties = jwtProperties;
+    
+        
     }
 
     @Override
